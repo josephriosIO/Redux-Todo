@@ -24,11 +24,10 @@ class AddTodo extends Component {
   removeTodo = e => {
     e.preventDefault();
 
-    this.props.removeTodo(this.props.todo);
+    this.props.removeTodo();
   };
 
   render() {
-    console.log(this.state.name);
     return (
       <div>
         <h1>todo List</h1>
@@ -39,7 +38,7 @@ class AddTodo extends Component {
           onChange={this.handleChanges}
         />
         <button onClick={this.addTodo}>add</button>
-        <button onClick={e => this.removeTodo(e)}>remove</button>
+        <button onClick={this.removeTodo}>remove</button>
       </div>
     );
   }

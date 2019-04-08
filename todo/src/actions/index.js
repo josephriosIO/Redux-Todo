@@ -17,10 +17,8 @@ export const completeTodo = id => {
   };
 };
 
-export const removeTodo = id => {
-  console.log(id);
+export const removeTodo = () => {
   return {
-    type: REMOVE_TODO,
-    payload: id
+    type: REMOVE_TODO
   };
 };
