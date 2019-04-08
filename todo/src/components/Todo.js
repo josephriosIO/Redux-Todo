@@ -1,15 +1,18 @@
 import React from "react";
 import { connect } from "react-redux";
 import { completeTodo } from "../actions";
+import AddTodo from "./AddTodo";
 
 const Todo = props => {
   return (
-    <li
-      className={`${props.item.completed ? "true" : null}`}
-      onClick={e => props.changeToggle(e, props.item.id)}
-    >
-      {props.item.name}
-    </li>
+    <>
+      <li
+        className={`${props.item.completed ? "true" : null}`}
+        onClick={e => props.changeToggle(e, props.item.id)}
+      >
+        {props.item.name}
+      </li>
+    </>
   );
 };
 

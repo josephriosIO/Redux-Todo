@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { addTodo } from "../actions";
+import { addTodo, removeTodo } from "../actions";
 
 class AddTodo extends Component {
   state = {
@@ -21,11 +21,17 @@ class AddTodo extends Component {
     });
   };
 
+  removeTodo = e => {
+    e.preventDefault();
+
+    this.props.removeTodo(this.props.todo);
+  };
+
   render() {
-    console.log(this.props.todo);
+    console.log(this.state.name);
     return (
       <div>
-        <h1>add todo</h1>
+        <h1>todo List</h1>
         <input
           type="text"
           name="name"
@@ -33,6 +39,7 @@ class AddTodo extends Component {
           onChange={this.handleChanges}
         />
         <button onClick={this.addTodo}>add</button>
+        <button onClick={e => this.removeTodo(e)}>remove</button>
       </div>
     );
   }
@@ -46,5 +53,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTodo }
+  { addTodo, removeTodo }
 )(AddTodo);

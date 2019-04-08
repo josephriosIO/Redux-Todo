@@ -1,4 +1,4 @@
-import { ADD_TODO, COMPLETE_TODO } from "../actions";
+import { ADD_TODO, COMPLETE_TODO, REMOVE_TODO } from "../actions";
 
 const intitalState = {
   todos: [
@@ -26,6 +26,14 @@ const reducer = (state = intitalState, action) => {
       return {
         ...state,
         todos: toggledTodo
+      };
+    case REMOVE_TODO:
+      const removeTodo = [...state.todos].filter(todo => {
+        return !todo.completed;
+      });
+      return {
+        ...state,
+        todos: removeTodo
       };
     default:
       return state;
