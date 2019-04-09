@@ -7,6 +7,11 @@ const intitalState = {
       completed: false,
       id: 1
     }
+  ],
+  testState: [
+    {
+      test: 1
+    }
   ]
 };
 
@@ -14,7 +19,10 @@ const reducer = (state = intitalState, action) => {
   switch (action.type) {
     case ADD_TODO:
       return {
-        todos: [...state.todos, action.payload]
+        todos: [
+          ...state.todos,
+          { name: action.payload, id: Date.now(), completed: false }
+        ]
       };
     case COMPLETE_TODO:
       const toggledTodo = [...state.todos].map(todo => {

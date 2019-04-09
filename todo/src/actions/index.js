@@ -5,7 +5,7 @@ export const REMOVE_TODO = "REMOVE_TODO";
 export const addTodo = name => {
   return {
     type: ADD_TODO,
-    payload: { name, id: Date.now(), completed: false }
+    payload: name
   };
 };
 
