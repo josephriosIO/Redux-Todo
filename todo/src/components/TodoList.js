@@ -1,9 +1,13 @@
 import React, { Component } from "react";
 import Todo from "./Todo";
 import { connect } from "react-redux";
-import { completeTodo } from "../actions";
+import { completeTodo, getTodos } from "../actions";
 
 class TodoList extends Component {
+  componentWillMount() {
+    this.props.getTodos();
+  }
+
   changeToggle = (e, id) => {
     e.preventDefault();
     this.props.completeTodo(id);
@@ -27,5 +31,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { completeTodo }
+  { completeTodo, getTodos }
 )(TodoList);

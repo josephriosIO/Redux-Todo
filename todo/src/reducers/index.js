@@ -1,22 +1,16 @@
-import { ADD_TODO, COMPLETE_TODO, REMOVE_TODO } from "../actions";
+import { ADD_TODO, COMPLETE_TODO, REMOVE_TODO, GET_TODOS } from "../actions";
 
 const intitalState = {
-  todos: [
-    {
-      name: "get milk",
-      completed: false,
-      id: 1
-    }
-  ],
-  testState: [
-    {
-      test: 1
-    }
-  ]
+  todos: []
 };
 
 const reducer = (state = intitalState, action) => {
   switch (action.type) {
+    case GET_TODOS:
+      return {
+        ...state,
+        todos: action.payload
+      };
     case ADD_TODO:
       return {
         todos: [

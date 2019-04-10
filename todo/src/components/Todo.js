@@ -10,7 +10,7 @@ const Todo = props => {
         className={`${props.item.completed ? "true" : null}`}
         onClick={e => props.changeToggle(e, props.item.id)}
       >
-        {props.item.name}
+        {props.item.title}
       </li>
     </>
   );
